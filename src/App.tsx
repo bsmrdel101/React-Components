@@ -6,7 +6,7 @@ export default function App() {
     <>
       <section>
         <h2>Button</h2>
-        <Button >Click Me</Button>
+        <Button>Click Me</Button>
       </section>
     </>
   )

@@ -23,9 +23,9 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  min-width: 100vw;
-  min-height: 100vh;
   padding: 5rem;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -46,9 +46,11 @@ section {
   border-radius: 0.5rem;
 }
 
-.no-hover {
-  &:hover {
-    border-color: transparent;
-    transform: scale(1, 1) translate(1, 1) rotate(1);
-  }
+.no-hover:hover {
+  border-color: transparent;
+  transform: translateY(0px);
+}
+
+.no-scale:hover {
+  transform: translateY(0px);
 }

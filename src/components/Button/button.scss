@@ -7,9 +7,10 @@
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all ease-in-out 0.2s;
 
   &:hover {
     border-color: #646cff;
+    transform: translateY(2px);
   }
 }

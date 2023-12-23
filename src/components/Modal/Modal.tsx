@@ -25,12 +25,12 @@ const Modal = forwardRef<HTMLDialogElement, Props>(({ children, title, open, hid
 
   return (
     <dialog open={open} ref={ref}>
-      <div className="modal">
+      <form method="dialog" className="modal">
         <h3 className="modal__title">{ title }</h3>
         <div className="modal__content">
           { children }
         </div>
-      </div>
+      </form>
     </dialog>
   )
 });

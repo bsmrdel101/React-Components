@@ -20,8 +20,9 @@ export default function App() {
           hideOnOverlayClick={true}
           ref={optionsModalRef}
         >
-          <Button>1st option</Button>
-          <Button>2nd option</Button>
+          <Button type="button">1st option</Button>
+          <Button type="button">2nd option</Button>
+          <Button type="submit">Cancel</Button>
         </Modal>
       </section>
     </>

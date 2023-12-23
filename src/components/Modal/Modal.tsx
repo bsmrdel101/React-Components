@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from "react"
+import React, { FormEvent, forwardRef, useEffect } from "react"
 
 
 interface Props {
@@ -6,26 +6,27 @@ interface Props {
   title?: string
   open?: boolean
   hideOnOverlayClick?: boolean
+  onSubmit?: (e: FormEvent) => void
 }
 
-const Modal = forwardRef<HTMLDialogElement, Props>(({ children, title, open, hideOnOverlayClick }, ref) => {
-    useEffect(() => {
-      const handleBackdropClick = (event: MouseEvent) => {
-        if (event.target === (ref as any).current && hideOnOverlayClick) {        
-            (ref as any).current.close();
-        }
-      };
+const Modal = forwardRef<HTMLDialogElement, Props>(({ children, title, open, hideOnOverlayClick, onSubmit }, ref) => {
+  useEffect(() => {
+    const handleBackdropClick = (event: MouseEvent) => {
+      if (event.target === (ref as any).current && hideOnOverlayClick) {        
+          (ref as any).current.close();
+      }
+    };
 
-      (ref as any).current.addEventListener('click', handleBackdropClick);
-      return () => {
-        (ref as any).current.removeEventListener('click', handleBackdropClick);
-      };
-    }, []);
-
+    (ref as any).current.addEventListener('click', handleBackdropClick);
+    return () => {
+      (ref as any).current.removeEventListener('click', handleBackdropClick);
+    };
+  }, []);
+    
 
   return (
     <dialog open={open} ref={ref}>
-      <form method="dialog" className="modal">
+      <form method="dialog" className="modal" onSubmit={(e: FormEvent) => onSubmit && onSubmit(e)}>
         <h3 className="modal__title">{ title }</h3>
         <div className="modal__content">
           { children }

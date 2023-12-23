@@ -7,7 +7,7 @@ interface Props {
   onClick?: () => void
   noHover?: boolean
   noScale?: boolean
-  type?: 'button' | 'submit' | 'dialog'
+  type?: 'button' | 'submit' | 'dialog-open' | 'dialog-close'
   modalRef?: Ref<HTMLDialogElement>
 }
 
@@ -15,6 +15,11 @@ export default function Button({ children, className, noHover, noScale, onClick,
   const showModal = () => {
     const modal: HTMLDialogElement = (modalRef as any).current;
     modal.showModal();
+  };
+
+  const closeModal = () => {
+    const modal: HTMLDialogElement = (modalRef as any).current;
+    modal.close();
   };
 
   const getClassNames = (): string[] => {
@@ -29,8 +34,10 @@ export default function Button({ children, className, noHover, noScale, onClick,
   if (className) classValue += ` ${className}`;
 
   const handleClick = () => {
-    if (type === 'dialog') {
+    if (type === 'dialog-open') {
       showModal();
+    } else if (type === 'dialog-close') {
+      closeModal();
     } else if (onClick) {
       onClick();
     }
@@ -42,7 +49,7 @@ export default function Button({ children, className, noHover, noScale, onClick,
       <button
         className={classValue}
         onClick={handleClick}
-        type={type !== 'dialog' ? type : 'button'}
+        type={(type !== 'dialog-open' && type !== 'dialog-close') ? type : 'button'}
       >
         { children }
       </button>

@@ -1,16 +1,22 @@
-import React from "react";
+import { Ref } from "react"
 
 
 interface Props {
-  children: any
+  children: React.ReactNode
   className?: string
   onClick?: () => void
   noHover?: boolean
   noScale?: boolean
+  type?: 'button' | 'submit' | 'dialog'
+  modalRef?: Ref<HTMLDialogElement>
 }
 
+export default function Button({ children, className, noHover, noScale, onClick, type, modalRef }: Props) {
+  const showModal = () => {
+    const modal: HTMLDialogElement = (modalRef as any).current;
+    modal.showModal();
+  };
 
-export default function Button({ children, className, noHover, noScale, onClick }: Props) {
   const getClassNames = (): string[] => {
     const classes = [];
     if (noHover) classes.push('no-hover');
@@ -22,12 +28,24 @@ export default function Button({ children, className, noHover, noScale, onClick 
   let classValue = classNames.length > 0 ? `button ${classNames.join(' ')}` : 'button';
   if (className) classValue += ` ${className}`;
 
+  const handleClick = () => {
+    if (type === 'dialog') {
+      showModal();
+    } else if (onClick) {
+      onClick();
+    }
+  };
+
+
   return (
-    <button
-      className={classValue}
-      onClick={onClick}
-    >
-      { children }
-    </button>
+    <>
+      <button
+        className={classValue}
+        onClick={handleClick}
+        type={type !== 'dialog' ? type : 'button'}
+      >
+        { children }
+      </button>
+    </>
   );
 }

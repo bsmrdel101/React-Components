@@ -1,5 +1,6 @@
 @import "./components/Button/button";
 @import "./components/Modal/modal";
+@import "./components/Grid/grid";
 
 
 :root {
@@ -46,6 +47,7 @@ section {
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
+  width: 80vw;
 }
 
 .no-hover:hover {

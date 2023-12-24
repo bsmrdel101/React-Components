@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 0;
+
+  &__item {
+    border: 2px solid black;
+    text-align: center;
+    background-color: #585858;
+
+    &:last-child {
+      border-right-width: 2px;
+    }
+  }
+}

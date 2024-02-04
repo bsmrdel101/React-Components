@@ -25,6 +25,10 @@ export default function Dropdown({ children, className }: Props) {
     setIsOpen(false);
   };
 
+  const getSortedDropdownOptions = dropdownOptions.sort((a: any, b: any) => 
+    a.props.value === selectedOption ? -1 : b.props.value === selectedOption ? 1 : 0
+  );
+
   
   return (
     <div className={`dropdown ${className || ''}`}>
@@ -44,7 +48,7 @@ export default function Dropdown({ children, className }: Props) {
           );
         })
       :
-        dropdownOptions.map((child: any) => {
+        getSortedDropdownOptions.map((child: any) => {
           const { value, children, className } = child.props;
 
           if (value === selectedOption) {

@@ -20,7 +20,7 @@ export default function Dropdown({ children, className }: Props) {
     });
 
     window.addEventListener('click', (e: any) => {
-      if (e.target.closest('.dropdown')) return;
+      if (e.target.closest('.dropdown__option')) return;
       setIsOpen(false);
     });
   }, []);
@@ -62,8 +62,8 @@ export default function Dropdown({ children, className }: Props) {
                 {...child.props}
                 className={`${className} dropdown__option--selected`}
                 value={value}
-                key={value}
                 onClick={() => setIsOpen(true)}
+                key={value}
               >
                 { children }
               </DropdownOption>

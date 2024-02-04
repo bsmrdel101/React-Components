@@ -5,11 +5,13 @@ import DropdownOption from "./DropdownOption";
 interface Props {
   children: React.ReactElement<typeof DropdownOption> | React.ReactElement<typeof DropdownOption>[]
   className?: string
+  onChange?: (value: string) => void
 }
 
-export default function Dropdown({ children, className }: Props) {
+export default function Dropdown({ children, className, onChange }: Props) {
   const dropdownOptions: any = Children.toArray(children);
   const [selectedOption, setSelectedOption] = useState(dropdownOptions[0].props.value);
+  const [previouslySelectedOption, setPreviouslySelectedOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -28,6 +30,10 @@ export default function Dropdown({ children, className }: Props) {
   const selectOption = (value: string) => {
     setSelectedOption(value);
     setIsOpen(false);
+    if (onChange && previouslySelectedOption !== value) {
+      onChange(value);
+      setPreviouslySelectedOption(value);
+    }
   };
 
   const getSortedDropdownOptions = dropdownOptions.sort((a: any, b: any) => 

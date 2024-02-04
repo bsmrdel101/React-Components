@@ -73,7 +73,7 @@ export default function App() {
 
       <section>
         <h2>Dropdown</h2>
-        <Dropdown>
+        <Dropdown onChange={(value: string) => console.log(value)}>
           <DropdownOption value="1">
             Option 1
           </DropdownOption>

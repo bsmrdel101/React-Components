@@ -18,6 +18,11 @@ export default function Dropdown({ children, className }: Props) {
         setSelectedOption(child.props.value);
       }
     });
+
+    window.addEventListener('click', (e: any) => {
+      if (e.target.closest('.dropdown')) return;
+      setIsOpen(false);
+    });
   }, []);
 
   const selectOption = (value: string) => {

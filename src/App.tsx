@@ -3,6 +3,8 @@ import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import Grid from "./components/Grid/Grid";
 import GridItem from "./components/Grid/GridItem";
+import Dropdown from "./components/Dropdown/Dropdown";
+import DropdownOption from "./components/Dropdown/DropdownOption";
 
 export default function App() {
   const optionsModalRef = useRef(null);
@@ -67,6 +69,21 @@ export default function App() {
             </Grid>
           </GridItem>
         </Grid>
+      </section>
+
+      <section>
+        <h2>Dropdown</h2>
+        <Dropdown>
+          <DropdownOption value="1">
+            Option 1
+          </DropdownOption>
+          <DropdownOption value="2">
+            Option 2
+          </DropdownOption>
+          <DropdownOption value="3">
+            Option 3
+          </DropdownOption>
+        </Dropdown>
       </section>
     </>
   )

@@ -1,0 +1,32 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+
+  &__option {
+    background-color: #585858;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    transition: all ease-in-out 0.3s;
+    padding-left: 0.5rem;
+
+    &--selected {
+      border: 1px solid black;
+    }
+
+    &:nth-child(even) {
+      background-color: rgb(100, 99, 99);
+    }
+    
+    &:last-child {
+      border-bottom-left-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+    }
+
+    &:hover {
+      background-color: #5a61ea;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 @import "./components/Button/button";
 @import "./components/Modal/modal";
 @import "./components/Grid/grid";
+@import "./components/Dropdown/dropdown";
 
 
 :root {
@@ -57,4 +58,8 @@ section {
 
 .no-scale:hover {
   transform: translateY(0px);
+}
+
+.hidden {
+  display: none;
 }

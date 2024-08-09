@@ -5,12 +5,14 @@
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--black-1);
   cursor: pointer;
   transition: all ease-in-out 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:hover {
-    border-color: #646cff;
-    transform: translateY(2px);
+    border-color: var(--purple-0);
+    color: var(--purple-0);
+    box-shadow: var(--purple-0)26 1.95px 1.95px 2.6px;
   }
 }

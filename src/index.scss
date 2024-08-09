@@ -1,3 +1,4 @@
+@import "./colors";
 @import "./components/Button/button";
 @import "./components/Modal/modal";
 @import "./components/Grid/grid";
@@ -11,16 +12,16 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--bg-0);
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--purple-0);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--purple-0);
 }
 
 body {
@@ -39,12 +40,12 @@ h1 {
 h2 {
   margin: -0.2rem 0 0.9rem;
   line-height: 1.1;
-  border-bottom: 3px solid #1a1a1a;
+  border-bottom: 3px solid var(--black-0);
   padding-bottom: 0.2rem;
 }
 
 section {
-  background-color: #494949;
+  background-color: var(--grey-light-0);
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;

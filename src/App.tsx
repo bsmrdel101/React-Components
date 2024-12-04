@@ -4,7 +4,7 @@ import Modal from "./components/Modal/Modal";
 import Grid from "./components/Grid/Grid";
 import GridItem from "./components/Grid/GridItem";
 import Dropdown from "./components/Dropdown/Dropdown";
-import DropdownOption from "./components/Dropdown/DropdownOption";
+
 
 export default function App() {
   const optionsModalRef = useRef(null);
@@ -74,15 +74,9 @@ export default function App() {
       <section>
         <h2>Dropdown</h2>
         <Dropdown onChange={(value: string) => console.log(value)}>
-          <DropdownOption value="1">
-            Option 1
-          </DropdownOption>
-          <DropdownOption value="2">
-            Option 2
-          </DropdownOption>
-          <DropdownOption value="3">
-            Option 3
-          </DropdownOption>
+          <option value="1">Option 1</option>
+          <option value="2" selected>Option 2</option>
+          <option>Option 3</option>
         </Dropdown>
       </section>
     </>

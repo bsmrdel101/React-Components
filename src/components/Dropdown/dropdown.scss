@@ -4,13 +4,19 @@
   user-select: none;
   -webkit-user-select: none;
   cursor: pointer;
+  height: fit-content;
+  margin: 0.3rem;
+
+  &__list {
+    position: absolute;
+    left: 0.1rem;
+    width: 97.5%;
+  }
 
   &__option {
     background-color: #585858;
-    padding: 0.5rem 1rem;
-    width: 100%;
+    padding: 0.3rem 0.5rem;
     transition: all ease-in-out 0.3s;
-    padding-left: 0.5rem;
 
     &--selected {
       border: 2px solid black;
@@ -28,5 +34,9 @@
     &:hover {
       background-color: #5a61ea;
     }
+  }
+
+  &__arrow-icon {
+    margin-left: 0.5rem;
   }
 }

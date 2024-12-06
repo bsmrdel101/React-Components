@@ -1,13 +1,13 @@
-import { useRef } from "react";
 import Button from "./components/Button/Button";
-import Modal from "./components/Modal/Modal";
 import Grid from "./components/Grid/Grid";
 import GridItem from "./components/Grid/GridItem";
 import Dropdown from "./components/Dropdown/Dropdown";
+import TestModal from "./components/Modal/TestModal";
+import { useState } from "react";
 
 
 export default function App() {
-  const optionsModalRef = useRef(null);
+  const [TestModalOpen, setTestModalOpen] = useState(false);
 
   return (
     <>
@@ -18,18 +18,8 @@ export default function App() {
 
       <section>
         <h2>Modal</h2>
-        <Button>Open Modal</Button>
-        <Modal
-          title="Select an option"
-          hideOnOverlayClick={true}
-          ref={optionsModalRef}
-        >
-          <input required />
-          <Button type="button">1st option</Button>
-          <Button type="button">2nd option</Button>
-          <Button>Cancel</Button>
-          <Button type="submit">Submit</Button>
-        </Modal>
+        <Button onClick={() => setTestModalOpen(true)}>Open Modal</Button>
+        <TestModal open={TestModalOpen} setOpen={setTestModalOpen} />
       </section>
 
       <section>
